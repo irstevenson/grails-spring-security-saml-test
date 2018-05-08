@@ -164,9 +164,6 @@ grails:
         responseSkew: 300
         signatureAlgorithm: 'rsa-sha256'
         digestAlgorithm: 'sha256'
-        userGroupAttribute: 'memberOf' # ???
-        userGroupToRoleMapping:
-          - ROLE_MY_APP_ROLE: 'CN=MYSAMLGROUP, OU=MyAppGroups, DC=myldap, DC=example, DC=com'
         autoCreate.active: false # We won't create user, if they're in the IdP but not Unbox, they should not have access
         #autoCreate.key: 'id'
         metadata:
