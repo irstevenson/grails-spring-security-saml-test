@@ -25,6 +25,23 @@ To use:
 2. Tweak any of the SAML config as required in `grails-app/conf/application.yml`;
 3. Launch the app: `./gradlew bootRun`
 
+## Key / Certificate Generation
+
+They keys and certificate were generated with the following:
+
+<pre>
+keytool -genkeypair -dname "CN=Grails Spring Security SAML Test"
+        -alias test -keypass password
+        -keystore keystore.jks
+        -storepass password -validity 3650 -keyalg RSA
+</pre>
+
+Then to get the certificate to place in `sp.xml` I did:
+
+    keytool -list -keystore keystore.jks -alias test -rfc
+    
+And copy and pasted the Base64 of the certificate.
+
 ## TODO
 
 * Update to be a more full fledged test app for the plugin; and

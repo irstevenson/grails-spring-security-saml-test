@@ -168,26 +168,26 @@ grails:
         #autoCreate.key: 'id'
         metadata:
           providers:
-            ping: 'security/idp-local.xml'
-          defaultIdp: 'ping'
+            shib: 'security/idp-metadata.xml'
+          defaultIdp: 'shib'
           url: '/saml/metadata'
           sp:
-            file: 'security/sp.xml'
+            file: 'security/sp-metadata.xml'
             defaults:
               local: true
-              entityId: 'http://test.com'
+              entityId: 'urn:grails-spring-security-saml-test'
               alias: 'test'
-              securityProfile: 'pkix'
-              signingKey: 'ping'
-              encryptionKey: 'ping'
-              tlsKey: 'ping'
+              securityProfile: 'metaiop'
+              signingKey: 'test'
+              encryptionKey: 'test'
+              tlsKey: 'test'
               requireArtifactResolveSigned: false
               requireLogoutRequestSigned: false
               requireLogoutResponseSigned: false
         keyManager:
           storeFile: "classpath:security/keystore.jks"
-          storePass: 'changeit'
+          storePass: 'password'
           passwords:
-            ping: 'changeit'
-          defaultKey: 'ping'
+            test: 'password'
+          defaultKey: 'test'
 
