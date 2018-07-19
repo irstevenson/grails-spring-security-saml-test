@@ -1,0 +1,48 @@
+dn: ou=users,dc=localdomain
+objectClass: organizationalUnit
+objectClass: top
+description: Agency
+
+dn: ou=Testing,ou=users,dc=localdomain
+objectClass: organizationalUnit
+description: Test Users Only
+
+dn: cn=Tester Zero,ou=Testing,ou=users,dc=localdomain
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+description: A user account for testing, just has admin to make it easier to remember
+givenName: Tester
+displayName: Zero, Tester
+uid: test-admin
+sn: Zero
+userPassword: {SSHA}lVF4gvHf7dYJ9qHwT78a7T9F8yFR0WEM
+
+dn: cn=Tester One,ou=Testing,ou=users,dc=localdomain
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+description: First non-admin account for testing
+givenName: Tester
+displayName: One, Tester
+uid: test1
+sn: One
+userPassword: {SSHA}lVF4gvHf7dYJ9qHwT78a7T9F8yFR0WEM
+
+dn: cn=Tester Two,ou=Testing,ou=users,dc=localdomain
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+description: Second non-admin account for testing
+givenName: Tester
+displayName: Two, Tester
+uid: test2
+sn: Two
+userPassword: {SSHA}lVF4gvHf7dYJ9qHwT78a7T9F8yFR0WEM
+
+dn: cn=Tester Three,ou=Testing,ou=users,dc=localdomain
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+description: Third non-admin account for testing
+givenName: Tester
+displayName: Three, Tester
+uid: test3
+sn: Three
+userPassword: {SSHA}lVF4gvHf7dYJ9qHwT78a7T9F8yFR0WEM

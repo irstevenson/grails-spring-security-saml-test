@@ -1,0 +1,4 @@
+slapd slapd/password1 password abc
+slapd slapd/password2 password abc
+slapd slapd/domain string localdomain
+slapd shared/organization string localdomain
