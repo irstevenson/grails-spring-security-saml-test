@@ -9,7 +9,24 @@ Note:
   `@EnableAutoConfiguration(exclude = [SecurityFilterAutoConfiguration])`
 * There is no substance to this project, just the bare bones and domain classes for Spring Security.
 
-Steps taken to create:
+## Usage
+
+This repo also contains a Vagrant box that will provide a ready to run SAML IDP (Shibboleth IDP)
+and the application is configured to use it. So to get up and running real quick all you need
+do is:
+
+0. Install JDK and Vagrant (and Virtualbox)
+1. `vagrant up`
+2. `./gradlew bootRun`
+3. Then go to http://localhost:8080/ in your browser where you'll be redirected to login via
+   Shibboleth. Enter `test-admin` and password `abc` and you'll be all nicely logged in. (Note:
+   seeing this is just a test setup, you'll need to accept various security warnings about
+   self signed certs and transitions from https to http.)
+
+## How was this created
+
+Following are the details here on how this app was created, for those who might be creating a
+new app themselves.
 
 1. grails create-app samltest
 2. Modified build.gradle to add additional repositories and the three additional dependencies
@@ -19,15 +36,12 @@ Steps taken to create:
 6. removed `conf/application.groovy`
 7. Modified `init/Application.groovy`
 
-To use:
-
-1. Update `grails-app/conf/security/idp-local.xml` with the metadata for your IDP;
-2. Tweak any of the SAML config as required in `grails-app/conf/application.yml`;
-3. Launch the app: `./gradlew bootRun`
+Since that initial creation though, much work has been done on `conf/security` and
+`conf/application.yml` so I'd recommend you probably start now with the files here.
 
 ## Key / Certificate Generation
 
-They keys and certificate were generated with the following:
+The keys and certificate were generated with the following:
 
 <pre>
 keytool -genkeypair -dname "CN=Grails Spring Security SAML Test"
@@ -45,4 +59,5 @@ And copy and pasted the Base64 of the certificate.
 ## TODO
 
 * Update to be a more full fledged test app for the plugin; and
-* Add a vagrant setup for provisioning an IDP to test against.
+* Work at having `master` use the current released version of the plugin, and `develop` use
+  a snapshot version - usually built from the current state of the plugin's `develop` branch.
