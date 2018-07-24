@@ -167,9 +167,9 @@ grails:
         autoCreate.active: false # We won't create user, if they're in the IdP but not Unbox, they should not have access
         #autoCreate.key: 'id'
         metadata:
+          defaultIdp: https://localhost:18443/shibboleth/idp
           providers:
-            shib: 'security/idp-metadata.xml'
-          defaultIdp: 'shib'
+            vagrant: http://localhost:18080/idp-metadata.xml
           url: '/saml/metadata'
           sp:
             file: 'security/sp-metadata.xml'
